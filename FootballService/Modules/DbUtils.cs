@@ -37,7 +37,7 @@ namespace FootballService.Modules
                 using (SqlConnection con = new SqlConnection(ConnStr.Replace("master", "Football")))
                 {
                     con.Open();
-                    using (SqlCommand cmd = new SqlCommand(@"INSERT INTO dbo.Logs([Request], [StatusCode], [Response]) VALUES (@pRequest, @pStatusCode, @pResponse ", con))
+                    using (SqlCommand cmd = new SqlCommand(@"INSERT INTO dbo.Logs([Request], [StatusCode], [Response]) VALUES (@pRequest, @pStatusCode, @pResponse)", con))
                     {
                         cmd.Parameters.AddWithValue("@pRequest", Request ?? (object)DBNull.Value);
                         cmd.Parameters.AddWithValue("@pStatusCode", Status ?? (object)DBNull.Value);

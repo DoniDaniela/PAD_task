@@ -1,0 +1,96 @@
+version: '3.4'
+
+# The default docker-compose.override file can use the "localhost" as the external name for testing web apps within the same dev machine.
+# The ESHOP_EXTERNAL_DNS_NAME_OR_IP environment variable is taken, by default, from the ".env" file defined like:
+#     ESHOP_EXTERNAL_DNS_NAME_OR_IP=localhost
+# but values present in the environment vars at runtime will always override those defined inside the .env file
+# An external IP or DNS name has to be used (instead localhost and the 10.0.75.1 IP) when testing the Web apps and the Xamarin apps from remote machines/devices using the same WiFi, for instance.
+
+services:
+  sqldata:
+    environment:
+      - SA_PASSWORD=Pass@word
+      - ACCEPT_EULA=Y
+    ports:
+      - "5433:1433"
+    volumes:
+      - pad-sqldata:/var/opt/mssql
+
+  redis:
+    ports:
+      - "6379:6379"
+
+  prometheus:
+    ports: 
+      - "9090:9090"
+
+  currency1-api:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - Kestrel__Endpoints__HTTP__Url=http://0.0.0.0:80
+      - ConnectionStrings__Database=Server=sqldata;Database=master;User Id=sa;Password=Pass@word;Encrypt=False;TrustServerCertificate=true
+      - PATH_BASE=/currency1-api
+    ports:
+      - "7101:80"
+
+  currency2-api:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - Kestrel__Endpoints__HTTP__Url=http://0.0.0.0:80
+      - ConnectionStrings__Database=Server=sqldata;Database=master;User Id=sa;Password=Pass@word;Encrypt=False;TrustServerCertificate=true
+      - PATH_BASE=/currency2-api
+    ports:
+      - "7111:80"
+
+  currency3-api:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - Kestrel__Endpoints__HTTP__Url=http://0.0.0.0:80
+      - ConnectionStrings__Database=Server=sqldata;Database=master;User Id=sa;Password=Pass@word;Encrypt=False;TrustServerCertificate=true
+      - PATH_BASE=/currency3-api
+    ports:
+      - "7121:80"
+
+  football1-api:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - Kestrel__Endpoints__HTTP__Url=http://0.0.0.0:80
+      - ConnectionStrings__Database=Server=sqldata;Database=master;User Id=sa;Password=Pass@word;Encrypt=False;TrustServerCertificate=true
+      - PATH_BASE=/football1-api
+    ports:
+      - "7103:80"
+
+  football2-api:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - Kestrel__Endpoints__HTTP__Url=http://0.0.0.0:80
+      - ConnectionStrings__Database=Server=sqldata;Database=master;User Id=sa;Password=Pass@word;Encrypt=False;TrustServerCertificate=true
+      - PATH_BASE=/football2-api
+    ports:
+      - "7113:80"
+
+  football3-api:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - Kestrel__Endpoints__HTTP__Url=http://0.0.0.0:80
+      - ConnectionStrings__Database=Server=sqldata;Database=master;User Id=sa;Password=Pass@word;Encrypt=False;TrustServerCertificate=true
+      - PATH_BASE=/football3-api
+    ports:
+      - "7123:80"
+
+  webaggregator:
+    environment:
+      - urls__currency=http://currency-api
+      - urls__football=http://football-api
+      - ReverseProxy__Clusters__currency__Destinations__destination0__Address=http://currency-api
+      - ReverseProxy__Clusters__football__Destinations__destination0__Address=http://football-api
+      - CurrencyUrlHC=http://currency-api/hc
+      - FootballUrlHC=http://football-api/hc
+      - PYTHON_APP_HOST=0.0.0.0
+      - PYTHON_APP_PORT=80
+    ports:
+      - "7199:5000"
+
+volumes:
+  pad-sqldata:
+    external: false

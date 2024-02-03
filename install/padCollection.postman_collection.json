@@ -1,0 +1,299 @@
+{
+	"info": {
+		"_postman_id": "334e7d07-8303-4e28-922a-b05e83222762",
+		"name": "padCollection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "9909777",
+		"_collection_link": "https://gold-eclipse-426862.postman.co/workspace/New-Team-Workspace~ff89fa68-195e-41cc-a3c9-bc4183da3280/collection/9909777-334e7d07-8303-4e28-922a-b05e83222762?action=share&source=collection_link&creator=9909777"
+	},
+	"item": [
+		{
+			"name": "Football",
+			"item": [
+				{
+					"name": "GetPredictions",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7199/f/Football/GetPredictions?markets=classic&iso_date=2018-12-01&federation=UEFA",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7199",
+							"path": [
+								"f",
+								"Football",
+								"GetPredictions"
+							],
+							"query": [
+								{
+									"key": "markets",
+									"value": "classic"
+								},
+								{
+									"key": "iso_date",
+									"value": "2018-12-01"
+								},
+								{
+									"key": "federation",
+									"value": "UEFA"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetPredictionDetails",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7199/f/Football/GetPredictionsDetails",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7199",
+							"path": [
+								"f",
+								"Football",
+								"GetPredictionsDetails"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetListAvailableFederations",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7199/f/Football/GetListAvailableFederations",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7199",
+							"path": [
+								"f",
+								"Football",
+								"GetListAvailableFederations"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetListAvailableMarkets",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7199/f/Football/GetListAvailableMarkets",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7199",
+							"path": [
+								"f",
+								"Football",
+								"GetListAvailableMarkets"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "StatusEndpoint",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7199/f/Football/GetStatus/status",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7199",
+							"path": [
+								"f",
+								"Football",
+								"GetStatus",
+								"status"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Currency",
+			"item": [
+				{
+					"name": "GetCurrencies",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:7199/c/Currency/GetCurrencies?output=JSON",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7199",
+							"path": [
+								"c",
+								"Currency",
+								"GetCurrencies"
+							],
+							"query": [
+								{
+									"key": "output",
+									"value": "JSON"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetConvert",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7199/c/Currency/GetConvert?from=EUR&to=KWD&amount=10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7199",
+							"path": [
+								"c",
+								"Currency",
+								"GetConvert"
+							],
+							"query": [
+								{
+									"key": "from",
+									"value": "EUR"
+								},
+								{
+									"key": "to",
+									"value": "KWD"
+								},
+								{
+									"key": "amount",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetRates",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7199/c/Currency/GetRates?output=JSON&currency=USD",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7199",
+							"path": [
+								"c",
+								"Currency",
+								"GetRates"
+							],
+							"query": [
+								{
+									"key": "output",
+									"value": "JSON"
+								},
+								{
+									"key": "currency",
+									"value": "USD"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetHistory",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7199/c/Currency/GetHistory?from=USD&to=EUR",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7199",
+							"path": [
+								"c",
+								"Currency",
+								"GetHistory"
+							],
+							"query": [
+								{
+									"key": "from",
+									"value": "USD"
+								},
+								{
+									"key": "to",
+									"value": "EUR"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "StatusEndpoint",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7199/c/Currency/GetStatus/status",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7199",
+							"path": [
+								"c",
+								"Currency",
+								"GetStatus",
+								"status"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

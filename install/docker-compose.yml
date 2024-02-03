@@ -1,0 +1,57 @@
+version: '3.4'
+
+services:
+
+  sqldata:
+    image: mcr.microsoft.com/mssql/server:2019-latest 
+
+  redis:
+    image: redis
+
+  prometheus:
+    image: danieladoni01/prometheus
+
+  currency1-api:
+    image: danieladoni01/currency1.api:latest
+    depends_on:
+      - sqldata
+
+  currency2-api:
+    image: danieladoni01/currency2.api:latest
+    depends_on:
+      - sqldata
+      - currency1-api
+
+  currency3-api:
+    image: danieladoni01/currency3.api:latest
+    depends_on:
+      - sqldata
+      - currency1-api
+
+  football1-api:
+    image: danieladoni01/football1.api:latest
+    depends_on:
+      - sqldata
+
+  football2-api:
+    image: danieladoni01/football2.api:latest
+    depends_on:
+      - sqldata
+      - football1-api
+
+  football3-api:
+    image: danieladoni01/football3.api:latest
+    depends_on:
+      - sqldata
+      - football1-api
+
+  webaggregator:
+    image: danieladoni01/webaggregator:latest
+    depends_on:
+      - redis
+      - currency1-api
+      - currency2-api
+      - currency3-api
+      - football1-api
+      - football2-api
+      - football3-api

@@ -142,7 +142,7 @@ namespace FootballService.Controllers
                 var response = client.GetAsync(request).Result;
 
                 _logger.LogDebug($"Response: {response.IsSuccessful}, {response.Content}");
-                //DbUtils.SetLog(_confog["ConnectionStrings:Database"], response.ResponseUri?.ToString(), (int)response.StatusCode, response.Content);
+                DbUtils.SetLog(_confog["ConnectionStrings:Database"], response.ResponseUri?.ToString(), (int)response.StatusCode, response.Content);
 
                 if (response.IsSuccessful)
                 {
