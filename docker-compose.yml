@@ -1,0 +1,81 @@
+version: '3.4'
+
+services:
+
+  sqldata:
+    image: mcr.microsoft.com/mssql/server:2019-latest 
+  
+  redis:
+    image: redis
+
+  prometheus:
+    image: prometheus
+    build:
+      context: .
+      dockerfile: prometheus/Dockerfile
+
+  currency1-api:
+    image: ${REGISTRY:-pad}/currency1.api:${PLATFORM:-linux}-${TAG:-latest}
+    build:
+      context: .
+      dockerfile: CurrencyService/Dockerfile
+    depends_on:
+      - sqldata
+
+  currency2-api:
+    image: ${REGISTRY:-pad}/currency2.api:${PLATFORM:-linux}-${TAG:-latest}
+    build:
+      context: .
+      dockerfile: CurrencyService/Dockerfile
+    depends_on:
+      - sqldata
+      - currency1-api
+
+  currency3-api:
+    image: ${REGISTRY:-pad}/currency3.api:${PLATFORM:-linux}-${TAG:-latest}
+    build:
+      context: .
+      dockerfile: CurrencyService/Dockerfile
+    depends_on:
+      - sqldata
+      - currency1-api
+
+  football1-api:
+    image: ${REGISTRY:-pad}/football1.api:${PLATFORM:-linux}-${TAG:-latest}
+    build:
+      context: .
+      dockerfile: FootballService/Dockerfile
+    depends_on:
+      - sqldata
+
+  football2-api:
+    image: ${REGISTRY:-pad}/football2.api:${PLATFORM:-linux}-${TAG:-latest}
+    build:
+      context: .
+      dockerfile: FootballService/Dockerfile
+    depends_on:
+      - sqldata
+      - football1-api
+
+  football3-api:
+    image: ${REGISTRY:-pad}/football3.api:${PLATFORM:-linux}-${TAG:-latest}
+    build:
+      context: .
+      dockerfile: FootballService/Dockerfile
+    depends_on:
+      - sqldata
+      - football1-api
+
+  webaggregator:
+    image: ${REGISTRY:-pad}/webaggregator:${PLATFORM:-linux}-${TAG:-latest}
+    build:
+      context: .
+      dockerfile: WebAggregator/Dockerfile
+    depends_on:
+      - redis
+      - currency1-api
+      - currency2-api
+      - currency3-api
+      - football1-api
+      - football2-api
+      - football3-api

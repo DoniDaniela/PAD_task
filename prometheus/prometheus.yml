@@ -1,0 +1,5 @@
+scrape_configs:
+  - job_name: 'prometheus-net'
+    scrape_interval: 5s
+    static_configs:
+      - targets: ['currency1-api','currency2-api','currency3-api','football1-api','football2-api','football3-api']

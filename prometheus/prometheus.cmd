@@ -1,0 +1,1 @@
+docker run --rm --name prometheus -p 9090:9090 -v C:\PROJECTS\Dana\PAD2\prometheus\prometheus.yml:/etc/prometheus/prometheus.yml prom/prometheus --config.file=/etc/prometheus/prometheus.yml --log.level=debug --enable-feature=exemplar-storage
