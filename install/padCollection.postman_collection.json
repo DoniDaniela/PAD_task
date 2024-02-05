@@ -8,7 +8,7 @@
 	},
 	"item": [
 		{
-			"name": "Football",
+			"name": "FootballPrediction",
 			"item": [
 				{
 					"name": "GetPredictions",
@@ -16,14 +16,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:7199/f/Football/GetPredictions?markets=classic&iso_date=2018-12-01&federation=UEFA",
+							"raw": "http://localhost:7103/Football/GetPredictions?markets=classic&iso_date=2018-12-01&federation=UEFA",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "7199",
+							"port": "7103",
 							"path": [
-								"f",
 								"Football",
 								"GetPredictions"
 							],
@@ -51,14 +50,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:7199/f/Football/GetPredictionsDetails",
+							"raw": "http://localhost:7103/Football/GetPredictionsDetails",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "7199",
+							"port": "7103",
 							"path": [
-								"f",
 								"Football",
 								"GetPredictionsDetails"
 							]
@@ -72,14 +70,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:7199/f/Football/GetListAvailableFederations",
+							"raw": "http://localhost:7103/Football/GetListAvailableFederations",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "7199",
+							"port": "7103",
 							"path": [
-								"f",
 								"Football",
 								"GetListAvailableFederations"
 							]
@@ -93,14 +90,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:7199/f/Football/GetListAvailableMarkets",
+							"raw": "http://localhost:7103/Football/GetListAvailableMarkets",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "7199",
+							"port": "7103",
 							"path": [
-								"f",
 								"Football",
 								"GetListAvailableMarkets"
 							]
@@ -114,14 +110,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:7199/f/Football/GetStatus/status",
+							"raw": "http://localhost:7103/Football/GetStatus/status",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "7199",
+							"port": "7103",
 							"path": [
-								"f",
 								"Football",
 								"GetStatus",
 								"status"
@@ -133,7 +128,7 @@
 			]
 		},
 		{
-			"name": "Currency",
+			"name": "CurrencyScoop",
 			"item": [
 				{
 					"name": "GetCurrencies",
@@ -153,14 +148,13 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:7199/c/Currency/GetCurrencies?output=JSON",
+							"raw": "http://localhost:7101/Currency/GetCurrencies?output=JSON",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "7199",
+							"port": "7101",
 							"path": [
-								"c",
 								"Currency",
 								"GetCurrencies"
 							],
@@ -180,14 +174,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:7199/c/Currency/GetConvert?from=EUR&to=KWD&amount=10",
+							"raw": "http://localhost:7101/Currency/GetConvert?from=EUR&to=KWD&amount=10",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "7199",
+							"port": "7101",
 							"path": [
-								"c",
 								"Currency",
 								"GetConvert"
 							],
@@ -215,14 +208,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:7199/c/Currency/GetRates?output=JSON&currency=USD",
+							"raw": "http://localhost:7101/Currency/GetRates?output=JSON&currency=USD",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "7199",
+							"port": "7101",
 							"path": [
-								"c",
 								"Currency",
 								"GetRates"
 							],
@@ -246,14 +238,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:7199/c/Currency/GetHistory?from=USD&to=EUR",
+							"raw": "http://localhost:7101/Currency/GetHistory?from=USD&to=EUR&date=2018-10-16",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "7199",
+							"port": "7101",
 							"path": [
-								"c",
 								"Currency",
 								"GetHistory"
 							],
@@ -265,6 +256,10 @@
 								{
 									"key": "to",
 									"value": "EUR"
+								},
+								{
+									"key": "date",
+									"value": "2018-10-16"
 								}
 							]
 						}
@@ -277,14 +272,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:7199/c/Currency/GetStatus/status",
+							"raw": "http://localhost:7101/Currency/GetStatus/status",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "7199",
+							"port": "7101",
 							"path": [
-								"c",
 								"Currency",
 								"GetStatus",
 								"status"
@@ -294,6 +288,384 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "Gateway",
+			"item": [
+				{
+					"name": "CurrencyScoop",
+					"item": [
+						{
+							"name": "GetCurrencies",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:7199/c/Currency/GetCurrencies?output=JSON",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "7199",
+									"path": [
+										"c",
+										"Currency",
+										"GetCurrencies"
+									],
+									"query": [
+										{
+											"key": "output",
+											"value": "JSON"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GetConvert",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:7199/c/Currency/GetConvert?from=EUR&to=KWD&amount=10",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "7199",
+									"path": [
+										"c",
+										"Currency",
+										"GetConvert"
+									],
+									"query": [
+										{
+											"key": "from",
+											"value": "EUR"
+										},
+										{
+											"key": "to",
+											"value": "KWD"
+										},
+										{
+											"key": "amount",
+											"value": "10"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GetRates",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:7199/c/Currency/GetRates?output=JSON&currency=USD",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "7199",
+									"path": [
+										"c",
+										"Currency",
+										"GetRates"
+									],
+									"query": [
+										{
+											"key": "output",
+											"value": "JSON"
+										},
+										{
+											"key": "currency",
+											"value": "USD"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GetHistory",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:7199/c/Currency/GetHistory?from=USD&to=EUR",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "7199",
+									"path": [
+										"c",
+										"Currency",
+										"GetHistory"
+									],
+									"query": [
+										{
+											"key": "from",
+											"value": "USD"
+										},
+										{
+											"key": "to",
+											"value": "EUR"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "CurrencyStatus",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:7199/c/Currency/GetStatus/status",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "7199",
+									"path": [
+										"c",
+										"Currency",
+										"GetStatus",
+										"status"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "FootballPrediction",
+					"item": [
+						{
+							"name": "GetPredictions",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:7199/f/Football/GetPredictions?markets=classic&iso_date=2018-12-01&federation=UEFA",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "7199",
+									"path": [
+										"f",
+										"Football",
+										"GetPredictions"
+									],
+									"query": [
+										{
+											"key": "markets",
+											"value": "classic"
+										},
+										{
+											"key": "iso_date",
+											"value": "2018-12-01"
+										},
+										{
+											"key": "federation",
+											"value": "UEFA"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GetPredictionDetails",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:7199/f/Football/GetPredictionsDetails",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "7199",
+									"path": [
+										"f",
+										"Football",
+										"GetPredictionsDetails"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GetListAvailableFederations",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:7199/f/Football/GetListAvailableFederations",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "7199",
+									"path": [
+										"f",
+										"Football",
+										"GetListAvailableFederations"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GetListAvailableMarkets",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:7199/f/Football/GetListAvailableMarkets",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "7199",
+									"path": [
+										"f",
+										"Football",
+										"GetListAvailableMarkets"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "FiitballStatus",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:7199/f/Football/GetStatus/status",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "7199",
+									"path": [
+										"f",
+										"Football",
+										"GetStatus",
+										"status"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "AggregationEndpoints",
+					"item": [
+						{
+							"name": "GetCurrencyForMatchHost",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:7199/GetAggregation/CurrencyForMatches",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "7199",
+									"path": [
+										"GetAggregation",
+										"CurrencyForMatches"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GetRatesForPredictionDetails",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:7199/GetAggregation/RatesForPredictionDetails",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "7199",
+									"path": [
+										"GetAggregation",
+										"RatesForPredictionDetails"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GetHistoryForPrediction",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:7199/GetAggregation/HistoryForPrediction",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "7199",
+									"path": [
+										"GetAggregation",
+										"HistoryForPrediction"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Gateway status",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:7199/GetStatus/status",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7199",
+					"path": [
+						"GetStatus",
+						"status"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
